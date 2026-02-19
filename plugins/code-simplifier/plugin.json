@@ -1,0 +1,12 @@
+{
+  "name": "code-simplifier",
+  "description": "Agent that reviews the git delta and simplifies code for clarity, consistency, and maintainability. Bootstraps git and .gitignore for new repositories.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Chris McKee"
+  },
+  "license": "MIT",
+  "keywords": ["code-quality", "simplifier", "refactor", "review"],
+  "agents": "agents/",
+  "hooks": "hooks.json"
+}
