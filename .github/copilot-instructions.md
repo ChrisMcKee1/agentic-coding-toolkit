@@ -45,7 +45,10 @@ copilot plugin install ./plugins/code-simplifier
 
 ## Hook Conventions
 
-- Hook manifests use `"version": 1` and map event names (e.g., `agentStop`, `preToolUse`) to command arrays.
+- Hook manifests use `"version": 1` and map event names to command arrays.
+  - **CLI events** (lowerCamelCase): `agentStop`, `preToolUse`, `postToolUse`, `sessionStart`, `sessionEnd`, `userPromptSubmitted`, `subagentStop`, `errorOccurred`
+  - **VS Code events** (PascalCase): `Stop`, `PreToolUse`, `PostToolUse`, `SessionStart`, `UserPromptSubmit`, `SubagentStart`, `SubagentStop`, `PreCompact`
+  - Include both `agentStop` and `Stop` in hook files for cross-platform compatibility.
 - Always provide both `powershell` and `bash` script paths for cross-platform support.
 - Scripts must guard for `copilot` CLI availability and exit 0 silently if missing.
 - `cwd` is relative to the hooks.json location.

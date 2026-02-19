@@ -1,7 +1,7 @@
 ---
 name: code-simplifier
 description: Reviews the git delta and simplifies recently changed code for clarity, consistency, and maintainability while preserving all functionality. Bootstraps git and .gitignore for new repositories.
-model: Claude Opus 4.6 (copilot)
+model: [ Claude Opus 4.6 (copilot), GPT-5.3-Codex (copilot), Claude Sonnet 4.6 (copilot) , 'Gemini 3.1 Pro (Preview) (copilot)' ]
 tools: [execute, read, edit, search, web, agent, todo]
 ---
 

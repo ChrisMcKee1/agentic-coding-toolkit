@@ -9,9 +9,19 @@ Hooks live in `hooks/<hook-name>/` and typically include:
 ## Spec Notes
 
 - Hook configs use `version: 1` with a `hooks` object.
-- Command entries use `type: "command"` and can include `bash`, `powershell`, `cwd`, `env`, and `timeoutSec`.
-- Official event names include `sessionStart`, `sessionEnd`, `userPromptSubmitted`, `preToolUse`, `postToolUse`, `agentStop`, `subagentStop`, and `errorOccurred`.
-- Only `preToolUse` responses are evaluated for permission decisions; output from other hook types is ignored.
+- Command entries use `type: "command"` and can include `bash`, `powershell`, `cwd`, `env`, and `timeoutSec` (CLI format) or `command`, `windows`, `linux`, `osx`, `cwd`, `env`, and `timeout` (VS Code format).
+
+### GitHub Copilot CLI Events (lowerCamelCase)
+
+- `sessionStart`, `sessionEnd`, `userPromptSubmitted`, `preToolUse`, `postToolUse`, `agentStop`, `subagentStop`, `errorOccurred`
+
+### VS Code Events (PascalCase)
+
+- `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, `Stop`
+
+> **Note:** VS Code auto-converts CLI lowerCamelCase to PascalCase, but `agentStop` → `AgentStop` does NOT map to VS Code's `Stop`. Include both events in hook files for cross-platform compatibility.
+
+- Only `preToolUse` / `PreToolUse` responses are evaluated for permission decisions; output from other hook types is ignored.
 
 ## Runtime Location
 
