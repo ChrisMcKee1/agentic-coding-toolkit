@@ -55,3 +55,8 @@ vendor/
 # Ruby
 *.gem
 
+# APM (Agent Package Manager)
+apm_modules/
+*-apm.prompt.md
+*-apm.agent.md
+*-apm.md

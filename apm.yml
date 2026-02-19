@@ -1,0 +1,17 @@
+name: agentic-coding-toolkit
+version: 2.0.0
+description: >
+  Curated Copilot customization collection featuring code-simplifier — an agent
+  that reviews the git delta and simplifies recently changed code for clarity,
+  consistency, and maintainability while preserving all functionality.
+author: Chris McKee
+scripts:
+  code-simplifier: >
+    copilot
+    --agent code-simplifier
+    --prompt "Review and simplify the code delta from the most recent changes."
+    --allow-all-tools
+    --silent
+dependencies:
+  apm: []
+  mcp: []

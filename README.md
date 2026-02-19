@@ -18,7 +18,28 @@ This repository is structured to scale like a marketplace-style Copilot content 
 - GitHub Copilot CLI installed and authenticated
 - Git installed
 
-### Install the local plugin
+### Install via APM (Agent Package Manager)
+
+[APM](https://github.com/microsoft/apm) lets any developer clone your project and get the code-simplifier agent configured automatically.
+
+```bash
+# Install APM (one-time)
+curl -sSL https://raw.githubusercontent.com/microsoft/apm/main/install.sh | sh
+# or: pip install apm-cli
+
+# Install the code-simplifier package
+apm install ChrisMcKee1/agentic-coding-toolkit
+
+# Compile instructions into AGENTS.md / CLAUDE.md
+apm compile
+
+# Run the code-simplifier prompt
+apm run code-simplifier
+```
+
+After `apm install`, the agent and prompt are integrated into `.github/agents/` and `.github/prompts/` (with `-apm` suffix) so VS Code, Copilot, Claude, and Cursor pick them up automatically.
+
+### Install the local plugin (Copilot CLI)
 
 From repo root:
 
@@ -116,6 +137,9 @@ For VS Code workspace discovery, use `.github/agents/*.md` and `.github/prompts/
 
 ```text
 .
+├── apm.yml         # APM package manifest (apm install / apm compile)
+├── SKILL.md        # APM package meta-guide for AI discovery
+├── .apm/           # APM primitives source (agents, prompts)
 ├── agents/         # Curated agent catalog and plugin-friendly agent files
 ├── prompts/        # Reusable prompts (*.prompt.md)
 ├── instructions/   # Coding instructions (*.instructions.md)
@@ -138,6 +162,7 @@ For VS Code workspace discovery, use `.github/agents/*.md` and `.github/prompts/
 
 ## Official References
 
+- APM (Agent Package Manager): https://github.com/microsoft/apm
 - VS Code custom agents: https://code.visualstudio.com/docs/copilot/customization/custom-agents
 - VS Code prompt files: https://code.visualstudio.com/docs/copilot/customization/prompt-files
 - VS Code custom instructions: https://code.visualstudio.com/docs/copilot/customization/custom-instructions

@@ -8,7 +8,18 @@ Plugins live in `plugins/<plugin-name>/` and include `plugin.json`.
 
 - `plugins/code-simplifier`
 
-## Install Local Plugin
+## Install via APM (recommended)
+
+This repository is also an [APM](https://github.com/microsoft/apm) package. Anyone can install the code-simplifier agent with:
+
+```bash
+apm install ChrisMcKee1/agentic-coding-toolkit
+apm compile
+```
+
+See [APM Support](README.apm.md) for details.
+
+## Install Local Plugin (Copilot CLI)
 
 ```bash
 copilot plugin install ./plugins/code-simplifier

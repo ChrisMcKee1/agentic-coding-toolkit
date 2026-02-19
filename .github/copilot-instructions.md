@@ -12,8 +12,9 @@ Resources exist in two locations with different roles:
 |---------|------|-----------|
 | **Runtime** (VS Code / GitHub discovers automatically) | `.github/agents/`, `.github/prompts/`, `.github/instructions/`, `.github/skills/` | `.md`, `.prompt.md`, `.instructions.md`, `SKILL.md` |
 | **Catalog / plugin** (browsable templates, bundled in plugins) | `agents/`, `prompts/`, `instructions/`, `skills/` | `.agent.md`, `.prompt.md`, `.instructions.md`, `SKILL.md` |
+| **APM package** (installed via `apm install`) | `.apm/agents/`, `.apm/prompts/`, `.apm/instructions/` | `.agent.md`, `.prompt.md`, `.instructions.md` |
 
-When adding a new resource, place the canonical copy under `.github/` for runtime discovery. Optionally add a catalog copy in the top-level folder if the resource should be browsable or bundled in a plugin.
+When adding a new resource, place the canonical copy under `.github/` for runtime discovery. Optionally add a catalog copy in the top-level folder if the resource should be browsable or bundled in a plugin. For APM distribution, also place a copy in `.apm/` following APM primitive conventions.
 
 ## File Authoring Rules
 
@@ -58,6 +59,9 @@ copilot plugin install ./plugins/code-simplifier
 
 | Task | Command |
 |------|---------|
+| Install via APM | `apm install ChrisMcKee1/agentic-coding-toolkit` |
+| Compile APM instructions | `apm compile` |
+| Run via APM | `apm run code-simplifier` |
 | Install plugin | `copilot plugin install ./plugins/code-simplifier` |
 | List plugins | `copilot plugin list` |
 | Run agent directly | `copilot --agent code-simplifier --prompt "..." --allow-all-tools --silent` |

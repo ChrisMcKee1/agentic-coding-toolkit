@@ -6,6 +6,7 @@ This repository is a curated Copilot customization collection maintained by Chri
 
 It contains:
 
+- APM package manifest (`apm.yml`) and primitives (`.apm/`)
 - Runtime agents (`.github/agents/*.md`)
 - Catalog/plugin agents (`agents/*.agent.md`)
 - Runtime prompts (`.github/prompts/*.prompt.md`)
@@ -21,6 +22,9 @@ It contains:
 
 ```text
 .
+├── apm.yml
+├── SKILL.md
+├── .apm/
 ├── agents/
 ├── prompts/
 ├── instructions/
@@ -77,6 +81,16 @@ It contains:
 - Reinstall local plugins after edits to refresh the installed cache.
 
 ## Setup Commands
+
+### Via APM (recommended)
+
+```bash
+apm install ChrisMcKee1/agentic-coding-toolkit
+apm compile
+apm run code-simplifier
+```
+
+### Via Copilot CLI plugin
 
 ```bash
 copilot plugin install ./plugins/code-simplifier
