@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "agentStop": [
+      {
+        "type": "command",
+        "powershell": ".github/hooks/scripts/run-code-simplifier.ps1",
+        "bash": ".github/hooks/scripts/run-code-simplifier.sh",
+        "cwd": ".",
+        "timeoutSec": 300
+      }
+    ]
+  }
+}

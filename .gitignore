@@ -1,0 +1,57 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.env
+.env.*
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Build output
+bin/
+obj/
+dist/
+build/
+out/
+target/
+coverage/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+*.egg
+
+# Go
+vendor/
+
+# Java/Kotlin
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+
+# Ruby
+*.gem
+
