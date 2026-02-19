@@ -7,7 +7,7 @@
         "powershell": ".github/hooks/scripts/run-code-simplifier.ps1",
         "bash": ".github/hooks/scripts/run-code-simplifier.sh",
         "cwd": ".",
-        "timeoutSec": 300
+        "timeoutSec": 600
       }
     ]
   }

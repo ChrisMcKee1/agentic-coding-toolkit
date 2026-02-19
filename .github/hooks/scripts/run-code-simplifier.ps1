@@ -1,21 +1,20 @@
 # run-code-simplifier.ps1
-# agentStop hook: invokes the code-simplifier agent when file edits were detected.
-# The agent's system prompt handles delta identification and git bootstrapping.
+# Stop hook: launches the code-simplifier agent when file edits were detected.
 
-$event = $input | ConvertFrom-Json -ErrorAction SilentlyContinue
-$shouldRun = $true
-
-if ($event) {
-    $editToolCalls = $event.tool_calls | Where-Object { $_.tool -match 'edit|write|create|apply_patch' }
-    $shouldRun = [bool]$editToolCalls
-}
-
-if (-not $shouldRun) {
-    Write-Output "code-simplifier hook: no file edits detected, skipping."
+# Guard: copilot CLI must be available.
+if (-not (Get-Command copilot -ErrorAction SilentlyContinue)) {
     exit 0
 }
 
-Write-Output "code-simplifier hook: running code-simplifier agent on the delta..."
+$event = ($input | Out-String).Trim()
+if (-not $event) { exit 0 }
+
+$data = $event | ConvertFrom-Json -ErrorAction SilentlyContinue
+if (-not $data) { exit 0 }
+
+$editTools = @('edit', 'write', 'create', 'apply_patch')
+$hasEdits = $data.tool_calls | Where-Object { $_.tool -in $editTools } | Select-Object -First 1
+if (-not $hasEdits) { exit 0 }
 
 copilot `
   --agent code-simplifier `
